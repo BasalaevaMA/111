@@ -8,23 +8,25 @@ using System.Text;
 
 using System.Threading.Tasks;
 
+
+
 namespace Laba5
 
 {
 
-    class Raspisanie
+    class Transport
 
     {
 
-        protected string Nomer;
+        protected string name;
 
-        public Raspisanie()
+        public Transport()
 
         {
 
-            Console.WriteLine("Введите номер поезда?");
+            Console.WriteLine("Name?");
 
-            this.Nomer = Console.ReadLine();
+            this.name = Console.ReadLine();
 
         }
 
@@ -32,7 +34,7 @@ namespace Laba5
 
         {
 
-            return String.Format("Raspisanie : Номер - {0}", this.Nomer);
+            return String.Format("Transport : Name - {0}", this.name);
 
         }
 
@@ -40,18 +42,17 @@ namespace Laba5
 
 
 
-    class Train : Raspisanie
+    class Vodnyy : Transport
 
     {
 
-        protected string hm, st;
+        protected string klassif;
 
-        public Train()
+        public Vodnyy()
 
         {
 
-            this.hm = "12:50";
-            this.st = "Белгород";
+            this.klassif = "Lodka";
 
         }
 
@@ -59,7 +60,7 @@ namespace Laba5
 
         {
 
-            return String.Format("Поезд : Номер поезда - {0}, Время отправления - {1} , Станция назначения - {2}", this.Nomer, this.hm, this.st);
+            return String.Format("Vodnyy : Name - {0}, klassif - {1} ", this.name, this.klassif);
 
         }
 
@@ -67,18 +68,17 @@ namespace Laba5
 
     }
 
-    class Train1 : Raspisanie
+    class Nazemnyy : Transport
 
     {
 
-        protected string hm, st;
+        protected string number;
 
-        public Train1()
+        public Nazemnyy()
 
         {
 
-            this.hm = "21:30";
-            this.st = "Орел";
+            this.number = "А323ПЛ";
 
 
 
@@ -88,24 +88,23 @@ namespace Laba5
 
         {
 
-            return String.Format("Поезд: Номер поезда - {0}, Время отправления - {1}, Станция назначения - {2} ", this.Nomer, this.hm, this.st);
+            return String.Format("Nazemnyy: Name - {0}, number - {1} ", this.name, this.number);
 
         }
 
     }
 
-    class Train2 : Raspisanie
+    class Korably : Vodnyy
 
     {
 
-        protected string hm, st;
+        protected string tip;
 
-        public Train2()
+        public Korably()
 
         {
 
-            this.hm = "06:00";
-            this.st = "Москва";
+            this.tip = "Одномачтовый";
 
         }
 
@@ -113,13 +112,14 @@ namespace Laba5
 
         {
 
-            return String.Format("Поезд : Номер поезда - {0}, Время отправления - {1}, Станция назначения - {2}", this.Nomer, this.hm, this.st);
+            return String.Format("Korably : Name - {0}, Tip - {1} ", this.name, this.tip);
 
         }
 
 
 
     }
+
 
 
     class Program
@@ -130,22 +130,24 @@ namespace Laba5
 
         {
 
-            Console.WriteLine("Поезд");
+            Console.WriteLine("Enter Vodnyy Info");
 
-            Raspisanie B = new Train();
+            Transport B = new Vodnyy();
 
-            Console.WriteLine("Поезд");
+            Console.WriteLine("Enter Nazemnyy Info");
 
-            Raspisanie C = new Train1();
+            Transport C = new Nazemnyy();
 
-            Console.WriteLine("Поезд");
+            Console.WriteLine("Enter Korably Info");
 
-            Raspisanie D = new Train2();
+            Transport D = new Korably();
+
             Console.WriteLine(B.get());
 
             Console.WriteLine(C.get());
 
             Console.WriteLine(D.get());
+
             Console.ReadKey();
 
         }
